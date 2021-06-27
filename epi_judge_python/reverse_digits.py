@@ -2,8 +2,14 @@ from test_framework import generic_test
 
 
 def reverse(x: int) -> int:
-    # TODO - you fill in here.
-    return 0
+    try:
+        _, number = str(x).split('-')
+    except ValueError:
+        sign = 1
+        number = str(x)
+    else:
+        sign = -1
+    return sign * int(number[-1::-1])
 
 
 if __name__ == '__main__':
