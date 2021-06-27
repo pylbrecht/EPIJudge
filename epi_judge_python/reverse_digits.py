@@ -1,7 +1,21 @@
 from test_framework import generic_test
 
+import math
+
 
 def reverse(x: int) -> int:
+    sign = int(math.copysign(1, x))
+    x = abs(x)
+    result = 0
+    while x > 0:
+        digit = x % 10
+        x = x // 10
+        result = (result * 10) + digit
+
+    return sign * result
+
+
+def reverse_brute_force(x: int) -> int:
     try:
         _, number = str(x).split('-')
     except ValueError:
