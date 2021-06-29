@@ -2,7 +2,15 @@ from test_framework import generic_test
 
 
 def is_palindromic(s: str) -> bool:
-    # TODO - you fill in here.
+    last = len(s) - 1
+    middle = len(s) // 2
+    from_start_to_middle = range(len(s) // 2)
+    from_end_to_middle = range(last, middle - 1, -1)
+    for i, j in zip(from_start_to_middle, from_end_to_middle):
+        if s[i] == s[j]:
+            continue
+        return False
+
     return True
 
 
